@@ -5,7 +5,18 @@ const validations = yup.object().shape({
     .string()
     .email("enter a valid email")
     .required("email is a required field"),
-  password: yup.string().min(5, "enter a valid password").required(),
+
+  password: yup
+    .string()
+    .min(8, "Must Contain 8 Characters")
+    .required()
+    .matches(/^(?=.*[a-z])/, " Must Contain One Lowercase Character")
+    .matches(/^(?=.*[A-Z])/, "  Must Contain One Uppercase Character")
+    .matches(/^(?=.*[0-9])/, "  Must Contain One Number Character")
+    .matches(
+      /^(?=.*[!@#\$%\^&\*])/,
+      "  Must Contain  One Special Case Character"
+    ),
   passwordConfirm: yup
     .string()
     .oneOf([yup.ref("password")], "Parolalar uyuşmuyor")
