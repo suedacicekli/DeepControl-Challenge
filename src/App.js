@@ -1,38 +1,34 @@
 import './App.css';
-import { Button, Navbar, Container, Nav } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
+//Components
+import NavigationBar from './Components/Navbar/NavigationBar';
+//Pages
+import Login from './Pages/Auth/Login/Login';
+import Register from './Pages/Auth/Register/Register'
+import Map from './Pages/Map/Map';
 
 function App() {
   return (
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
-        <img
-          src="https://deepcontrol.net/assets/img/deepcontrol_black_logo.png"
-          width="15%"
-          className="d-inline-block align-top"
-          alt="React Bootstrap logo"
-        />
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">Kurumsal</Nav.Link>
-            <Nav.Link href="#action2">IOT Çözümleri</Nav.Link>
-
-            <Nav.Link href="#" disabled>
-              Deep Control Lab
-            </Nav.Link>
-          </Nav>
-          <div >
-            <Button variant="outline-primary" >Login</Button>
-            <Button variant="primary" className=" mx-3 ">Sign Up</Button>
-          </div>
-        </Navbar.Collapse>
+    <BrowserRouter>
+      <NavigationBar />
+      <Container>
+        <div id="content">
+          <Routes>
+            <Route path="/map" element={<Map />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </div>
       </Container>
-    </Navbar>
-  );
+    </BrowserRouter>
+
+
+  )
 }
 
-export default App;
+export default App
