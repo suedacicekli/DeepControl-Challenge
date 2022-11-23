@@ -32,7 +32,7 @@ function NavigationBar() {
                             <Button variant="outline-primary">Login</Button>
                         </Link>
                         <Link to="/register" >
-                            <Button variant="primary" className=" mx-3 ">Register</Button>
+                            <Button variant="primary" className=" mx-3 ">Sign Up</Button>
                         </Link>
                     </div>
                 </Navbar.Collapse>
