@@ -8,17 +8,22 @@ function NavigationBar() {
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
-                <img
-                    src="https://deepcontrol.net/assets/img/deepcontrol_black_logo.png"
-                    width="15%"
-                    className="d-inline-block align-top"
-                    alt="React Bootstrap logo"
-                />
+
                 <Navbar.Toggle aria-controls="navbarScroll" />
+
+                <a href="/" >
+                    <img
+                        src="https://deepcontrol.net/assets/img/deepcontrol_black_logo.png"
+                        width="45%"
+                        className="d-inline-block align-top"
+                        alt="React Bootstrap logo"
+                    ></img>
+                </a>
+
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
-                        className="me-auto my-2 my-lg-0"
-                        style={{ maxHeight: '100px' }}
+                        className="me-auto my-2 my-lg-0 "
+                        style={{ maxHeight: '100px', marginLeft: "-250px" }}
                         navbarScroll
                     >
                         <Link className="NavLink ms-4 " to="/map">Deep MAP</Link>

@@ -84,6 +84,7 @@ function Register() {
                 </Button>
               </form>
               <hr className="my-4" />
+              <a href="/login" className="text-decoration-none">Do you already have an account</a>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>

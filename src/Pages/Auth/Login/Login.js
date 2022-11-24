@@ -65,8 +65,8 @@ function Login() {
                   LOGIN
                 </Button>
               </form>
-
               <hr className="my-4" />
+              <a href="/register" className="text-decoration-none">Don't have an account</a>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
