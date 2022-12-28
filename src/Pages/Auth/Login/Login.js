@@ -10,17 +10,30 @@ import {
 } from "mdb-react-ui-kit";
 import validationSchema from "./validations";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+
+  const username = "admin@admin.com";
+  const password = "admin123";
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    validationSchema,
+    //validationSchema,
     onSubmit: async (values, bag) => {
-      console.log(values);
-    },
+
+      if (values.email === username && values.password === password) {
+        localStorage.setItem("islogin", true);
+        navigate("/map")
+      } else {
+        localStorage.setItem("islogin", false);
+        bag.resetForm();
+      }
+    }
   });
 
   return (
@@ -41,6 +54,7 @@ function Login() {
                   size="lg"
                   name="email"
                   onChange={formik.handleChange}
+
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
                 />
@@ -61,7 +75,7 @@ function Login() {
                 {formik.errors.password && formik.touched.password && (
                   <div className=" text-danger">{formik.errors.password}</div>
                 )}
-                <Button size="lg" className="mt-4" type="submit">
+                <Button size="lg" className=" t-4" type="submit">
                   LOGIN
                 </Button>
               </form>

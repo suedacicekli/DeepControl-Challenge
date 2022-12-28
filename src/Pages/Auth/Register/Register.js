@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import validationSchema from "./validations";
 import {
@@ -12,17 +12,24 @@ import {
 import { Button } from "react-bootstrap";
 
 function Register() {
+  const [users, setUsers] = useState([]);
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
       passwordConfirm: "",
     },
-    validationSchema,
+    // validationSchema,
     onSubmit: async (values, bag) => {
-      console.log(values);
+      setUsers((prev) => [...prev, JSON.stringify(values)]);
+      bag.resetForm();
     },
   });
+
+  React.useEffect(() => {
+    localStorage.setItem('storageUsers', JSON.stringify(users))
+  }, [users])
+
   return (
     <MDBContainer fluid>
       <MDBRow className="d-flex justify-content-center align-items-center h-100">

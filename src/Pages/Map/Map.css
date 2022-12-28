@@ -4,3 +4,25 @@
     margin-top:60px;
   }
   
+ .iconButton {
+  width: 70px !important;
+  height: 50px;;
+  background-color:#f7f7f7;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius:15px;
+  font-size: 25px !important;
+ }
+ .iconButton:hover {
+  background-color:#1F67D3;
+  color : white;
+  transition-duration: 1s;
+}
+ 
+ .mapLocation {
+  font-size: 18px;;
+ }
+.markerred {
+  filter: invert(57%) sepia(91%) saturate(6101%) hue-rotate(204deg) brightness(90%) contrast(83%);
+}
